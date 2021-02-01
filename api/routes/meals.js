@@ -26,7 +26,7 @@ router.put("/:id", (req, res) => {
 });
 
 router.delete("/:id", (req, res) => {
-  Meals.findOneAndDelete(req.paramas.id)
+  Meals.findOneAndDelete(req.params.id)
     .exec()
     .then(() => res.sendStatus(204));
 });

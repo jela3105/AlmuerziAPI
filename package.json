@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build": "DEL -rf public && mkdir public && echo 'Custom Build' > ./public/index.html"
+    "build": ""
   },
   "dependencies": {
     "body-parser": "^1.19.0",
