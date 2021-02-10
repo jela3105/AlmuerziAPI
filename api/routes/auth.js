@@ -1,8 +1,15 @@
 const express = require("express");
 const Users = require("../models/Users");
 const crypto = require("crypto");
+const jwt = require("jsonwebtoken");
 
 const router = express.Router();
+
+const singToken = (_id) => {
+  return jwt.sign({ _id }, "my-secret", {
+    expiresIn: 60 * 60 * 24 * 365,
+  });
+};
 
 router.post("/register", (req, res) => {
   const { email, password } = req.body;
