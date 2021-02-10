@@ -41,6 +41,7 @@ router.post("/login", (req, res) => {
         const token = singToken(user._id);
         return res.send({ token });
       }
+      return res.send("User or password incorrect");
     });
   });
 });
