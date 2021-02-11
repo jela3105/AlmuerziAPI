@@ -2,6 +2,7 @@ const express = require("express");
 const Users = require("../models/Users");
 const crypto = require("crypto");
 const jwt = require("jsonwebtoken");
+const { isAuthenticated } = require("../auth");
 
 const router = express.Router();
 
@@ -51,6 +52,10 @@ router.post("/login", (req, res) => {
       return res.send("User or password incorrect");
     });
   });
+});
+
+router.get("/me", isAuthenticated, (req, res) => {
+  res.send(req.user);
 });
 
 module.exports = router;
